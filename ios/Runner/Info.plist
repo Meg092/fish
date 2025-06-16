@@ -27,9 +27,9 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSCameraUsageDescription</key>
-	<string>Access camera for uploading pictures</string>
+	<string>Please enable camera permission to upload photos of fish tank and fish</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Access the album for uploading pictures</string>
+	<string>Please enable album to upload photos of fish tank and fish</string>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
 	<key>UILaunchStoryboardName</key>

@@ -1,6 +1,9 @@
 import 'package:fish_tank/db_fish/db_fish.dart';
+import 'package:fish_tank/db_fish/db_init.dart';
 import 'package:fish_tank/pages/fish_add/fish_add_binding.dart';
 import 'package:fish_tank/pages/fish_add/fish_add_view.dart';
+import 'package:fish_tank/pages/fish_edit/fish_edit_binding.dart';
+import 'package:fish_tank/pages/fish_edit/fish_edit_view.dart';
 import 'package:fish_tank/pages/fish_first/fish_first_binding.dart';
 import 'package:fish_tank/pages/fish_first/fish_first_view.dart';
 import 'package:fish_tank/pages/fish_second/fish_second_binding.dart';
@@ -41,7 +44,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       getPages: Thats,
-      initialRoute: '/fish_tab',
+      initialRoute: '/',
       theme: ThemeData(
         useMaterial3: true,
         primaryColor: primaryColor,
@@ -80,28 +83,16 @@ class MyApp extends StatelessWidget {
             borderRadius: BorderRadius.all(Radius.circular(10)),
           ),
         ),
-        cardTheme: const CardTheme(
-          color: Colors.white,
-          elevation: 0,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.all(Radius.circular(10)),
-          ),
-        ),
-        dialogTheme: const DialogTheme(
-          actionsPadding: EdgeInsets.only(right: 10, bottom: 5),
-        ),
-        dividerTheme: DividerThemeData(
-          thickness: 1,
-          color: Colors.grey[200],
-        ),
       ),
     );
   }
 }
 List<GetPage<dynamic>> Thats = [
+  GetPage(name: '/', page: () => const FishEditView(), binding: FishEditBinding()),
   GetPage(name: '/fish_error', page: () => NoNetworkPage(), binding: NoNetworkBinding()),
   GetPage(name: '/fish_add', page: () => FishAddPage(), binding: FishAddBinding()),
   GetPage(name: '/fish_first', page: () => FishFirstPage(), binding: FishFirstBinding()),
+  GetPage(name: '/fish_init', page: () => DbInit()),
   GetPage(name: '/fish_second', page: () => FishSecondPage(), binding: FishSecondBinding()),
   GetPage(name: '/fish_tab', page: () => FishTabPage(), binding: FishTabBinding()),
   GetPage(name: '/fish_tank_add', page: () => FishTankAddPage(), binding: FishTankAddBinding()),
